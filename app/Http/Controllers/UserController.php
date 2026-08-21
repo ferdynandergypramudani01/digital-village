@@ -13,7 +13,7 @@ class UserController extends Controller
 
     private UserRepositoryInterface $userRepository;
 
-    public function __conctruct(UserRepositoryInterface $userRepository)
+    public function __construct(UserRepositoryInterface $userRepository)
     {
         $this->userRepository = $userRepository;
     }

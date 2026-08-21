@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Repositories;
 
@@ -7,12 +7,12 @@ use App\Models\User;
 
 
 class UserRepository implements UserRepositoryInterface
-{   
+{
     public function getAll(
         ?string $search,
         ?int $limit,
-        bool $execute)
-    {
+        bool $execute
+    ) {
         $query = User::where(function ($query) use ($search) {
             // jika ada parameter search, akan melakukan search yang didefinisikan di model User
             if ($search) {
@@ -34,16 +34,17 @@ class UserRepository implements UserRepositoryInterface
         return $query;
     }
 
-    
+
     public function getAllPaginated(
         ?string $search,
         ?int $rowPerPage
-    )
-    {
+    ) {
         $query = $this->getAll(
             $search,
-            $rowPerPage,
+            null,
             false
         );
+
+        return $query->paginate($rowPerPage);
     }
 }
