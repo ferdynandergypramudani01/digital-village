@@ -49,6 +49,15 @@ class HeadOfFamilyRepository implements HeadOfFamilyRepositoryInterface
     }
 
 
+    public function getById(
+        string $id
+    ) {
+        $query = HeadOfFamily::where('id', $id);
+
+        return $query->first();
+    }
+
+
     public function create(
         array $data
     ) {
