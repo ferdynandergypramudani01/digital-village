@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use App\Traits\UUID;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FamilyMember extends Model
 {
-    use UUID, SoftDeletes;
+    use HasUuids, SoftDeletes;
 
     protected $fillable = [
         'head_of_family_id',
@@ -19,7 +20,8 @@ class FamilyMember extends Model
         'date_of_birth',
         'phone_number',
         'occupation',
-        'marital_status'
+        'marital_status',
+        'relation'
     ];
 
     public function scopeSearch($query, $search)

@@ -25,7 +25,8 @@ class FamilyMemberResource extends JsonResource
             'phone_number' => $this->phone_number,
             'identity_number' => $this->identity_number,
             'occupation' => $this->occupation,
-            'marital_status' => $this->marital_status
+            'marital_status' => $this->marital_status,
+            'relation' => $this->relation,
         ];
     }
 }
