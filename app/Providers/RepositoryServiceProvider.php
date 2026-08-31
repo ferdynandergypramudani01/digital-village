@@ -2,12 +2,12 @@
 
 namespace App\Providers;
 
+use App\Interfaces\FamilyMemberRepositoryInterface;
 use App\Interfaces\HeadOfFamilyRepositoryInterface;
 use App\Interfaces\UserRepositoryInterface;
+use App\Repositories\FamilyMemberRepository;
 use App\Repositories\HeadOfFamilyRepository;
 use App\Repositories\UserRepository;
-use FamilyMemberRepository;
-use FamilyMemberRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
