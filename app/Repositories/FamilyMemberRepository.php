@@ -6,6 +6,7 @@ use App\Interfaces\FamilyMemberRepositoryInterface;
 use App\Models\FamilyMember;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Override;
 
 class FamilyMemberRepository implements FamilyMemberRepositoryInterface
 {
@@ -43,6 +44,15 @@ class FamilyMemberRepository implements FamilyMemberRepositoryInterface
         );
 
         return $query->paginate($rowPerPage);        
+    }
+
+
+    public function getById(
+        string $id
+    ) {
+        $query = FamilyMember::where('id', $id)->with('headOfFamily');
+        
+        return $query->first();
     }
 
 
