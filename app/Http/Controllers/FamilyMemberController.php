@@ -124,6 +124,20 @@ class FamilyMemberController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $familyMember = $this->familyMemberRepository->getById(
+                $id
+            );
+
+            if (!$familyMember) {
+                return ResponseHelper::jsonResponse(false, 'Data Anggota Keluarga Tidak Ditemukan', null, 404);
+            }
+
+            $this->familyMemberRepository->delete($id);
+
+            return ResponseHelper::jsonResponse(true, 'Data Anggota Keluarga Berhasil Dihapus', null, 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }    
     }
 }
