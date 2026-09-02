@@ -19,7 +19,15 @@ class SocialAssistance extends Model
         'description',
         'is_available'
 
-    ];    
+    ];   
+
+    
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('name', 'like', '%' . $search . '%')
+            ->orWhere('provider', 'like', '%' . $search . '%')
+            ->orWhere('amount', 'like', '%' . $search . '%');
+    }
 
     public function socialAssistanceRecipients()
     {
