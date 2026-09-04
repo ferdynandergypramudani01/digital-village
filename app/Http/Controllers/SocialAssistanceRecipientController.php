@@ -23,8 +23,8 @@ class SocialAssistanceRecipientController extends Controller
     {
         try {
             $socialAssistanceRecipients = $this->socialAssistanceRecipientRepository->getAll(
-                $request()->search,
-                $request()->limit,
+                $request->search,
+                $request->limit,
                 true
             );
 
