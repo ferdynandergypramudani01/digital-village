@@ -46,6 +46,16 @@ class SocialAssistanceRecipientRepository implements SocialAssistanceRecipientRe
         return $query->paginate($rowPerPage);
     }
 
+
+    public function getById(
+        string $id
+    ) {
+        $query = SocialAssistanceRecipient::where('id', $id);
+
+        return $query->first();
+    }
+
+
     public function create(
         array $data
     ) {
