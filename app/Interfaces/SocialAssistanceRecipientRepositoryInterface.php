@@ -14,4 +14,8 @@ interface SocialAssistanceRecipientRepositoryInterface
         ?string $search,
         ?int $rowPerPage
     );
+
+    public function create(
+        array $data
+    );
 }
