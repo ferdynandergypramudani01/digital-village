@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Interfaces\EventParticipantRepository;
+use App\Interfaces\EventParticipantRepositoryInterface;
 use App\Interfaces\FamilyMemberRepositoryInterface;
 use App\Interfaces\HeadOfFamilyRepositoryInterface;
 use App\Interfaces\SocialAssistanceRecipientRepositoryInterface;
@@ -26,6 +28,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(FamilyMemberRepositoryInterface::class, FamilyMemberRepository::class);
         $this->app->bind(SocialAssistanceRepositoryInterface::class, SocialAssistanceRepository::class);
         $this->app->bind(SocialAssistanceRecipientRepositoryInterface::class, SocialAssistanceRecipientRepository::class);
+        $this->app->bind(EventParticipantRepositoryInterface::class, EventParticipantRepository::class);
     }
 
     /**
