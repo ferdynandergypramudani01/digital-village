@@ -48,6 +48,15 @@ class EventRepository implements EventRepositoryInterface
     }
 
 
+    public function getById(
+        string $id
+    ) {
+        $query = Event::where('id', $id);
+        
+        return $query->first();
+    }
+
+
     public function create(
         array $data
     ) {
