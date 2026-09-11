@@ -16,7 +16,7 @@ class EventParticipantResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'event' => new EventParticipantResource($this->event),
+            'event' => new EventResource($this->event),
             'head_of_family' => new HeadOfFamilyResource($this->headOfFamily),
             'quantity' => $this->quantity,
             'total_price' => (float)(string)$this->total_price,
