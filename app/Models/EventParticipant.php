@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class EventParticipant extends Model
 {
-    use UUID, SoftDeletes, HasFactory;
+    use HasFactory, UUID, SoftDeletes;
 
     protected $fillable = [
         'event_id',

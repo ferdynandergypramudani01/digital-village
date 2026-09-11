@@ -26,8 +26,8 @@ Route::get('social-assistance/all/paginated', [SocialAssistanceController::class
 Route::apiResource('social-assistance-recipient', SocialAssistanceRecipientController::class);
 Route::get('social-assistance-recipient/all/paginated', [SocialAssistanceRecipientController::class, 'getAllPaginated']);
 
-Route::apiResource('event-participant', EventParticipantController::class);
-Route::get('event-participant/all/paginated', [EventParticipantController::class, 'getAllPaginated']);
-
 Route::apiResource('event', EventController::class);
 Route::get('event/all/paginated', [EventController::class, 'getAllPaginated']);
+
+Route::apiResource('event-participant', EventParticipantController::class);
+Route::get('event-participant/all/paginated', [EventParticipantController::class, 'getAllPaginated']);
