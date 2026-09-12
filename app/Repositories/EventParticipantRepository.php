@@ -49,6 +49,15 @@ class EventParticipantRepository implements EventParticipantRepositoryInterface
     }
 
 
+    public function getById(
+        string $id
+    ) {
+        $query = EventParticipant::where('id', $id);
+
+        return $query->first();
+    }
+
+
     public function create(
         array $data
     ) {

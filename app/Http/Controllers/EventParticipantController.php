@@ -77,7 +77,17 @@ class EventParticipantController extends Controller
      */
     public function show(string $id)
     {
-        //
+        try {
+            $eventParticipant = $this->eventParticipantRepository->getById($id);
+
+            if (!$eventParticipant) {
+                return ResponseHelper::jsonResponse(false, 'Data Pendaftar Event Tidak Ditemukan', null, 404);
+            }
+
+            return ResponseHelper::jsonResponse(true, 'Data Pendaftar Event Berhasil Diambil', new EventParticipantResource($eventParticipant), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }   
     }
 
     /**
