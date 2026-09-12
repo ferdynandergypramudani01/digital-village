@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ResponseHelper;
 use App\Http\Requests\EventParticipantStoreRequest;
+use App\Http\Requests\EventParticipantUpdateRequest;
 use App\Http\Resources\EventParticipantResource;
 use App\Http\Resources\PaginateResource;
 use App\Interfaces\EventParticipantRepositoryInterface;
@@ -93,9 +94,23 @@ class EventParticipantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(EventParticipantUpdateRequest $request, string $id)
     {
-        //
+        $request = $request->validated();
+
+        try {
+            $eventParticipant = $this->eventParticipantRepository->getById($id);
+
+            if (!$eventParticipant) {
+                return ResponseHelper::jsonResponse(false, 'Data Pendaftar Event Tidak Ditemukan', null, 404);
+            }
+
+            $eventParticipant = $this->eventParticipantRepository->update($id, $request);
+
+            return ResponseHelper::jsonResponse(true, 'Data Pendaftar Event Berhasil Diupdate', new EventParticipantResource($eventParticipant), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 
     /**
