@@ -115,4 +115,25 @@ class EventParticipantRepository implements EventParticipantRepositoryInterface
             throw new Exception($e->getMessage());
         }       
     }
+
+
+
+    public function delete(
+        string $id
+    ) {
+        DB::beginTransaction();
+
+        try {
+            $eventParticipant = EventParticipant::find($id);
+            $eventParticipant->delete();
+
+            DB::commit();
+
+            return $eventParticipant;
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            throw new Exception($e->getMessage());
+        }
+    }
 }
