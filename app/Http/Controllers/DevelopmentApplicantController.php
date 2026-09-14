@@ -26,7 +26,7 @@ class DevelopmentApplicantController extends Controller
             $developmentApplicants = $this->developmentApplicantRepository->getAll(
                 $request->search,
                 $request->limit,
-                $request->true
+                true
             );
 
             return ResponseHelper::jsonResponse(true, 'Data Pendaftar Pembangunan Berhasil Diambil', DevelopmentApplicantResource::collection($developmentApplicants), 200);
