@@ -14,4 +14,8 @@ interface DevelopmentApplicantRepositoryInterface
         ?string $search,
         ?int $rowPerPage 
     );
+
+    public function create(
+        array $data
+    );
 }
