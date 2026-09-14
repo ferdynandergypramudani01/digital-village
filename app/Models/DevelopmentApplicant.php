@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use App\Traits\UUID;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DevelopmentApplicant extends Model
 {
-    use UUID, SoftDeletes;
+    use HasFactory, UUID, SoftDeletes;
 
     protected $fillable = [
         'development_id',

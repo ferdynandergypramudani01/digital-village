@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DevelopmentApplicant;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,7 +18,8 @@ class DatabaseSeeder extends Seeder
             SocialAssistanceSeeder::class,
             EventSeeder::class,
             EventParticipantSeeder::class,
-            DevelopmentSeeder::class
+            DevelopmentSeeder::class,
+            DevelopmentApplicant::class
         ]);
     }
 }
