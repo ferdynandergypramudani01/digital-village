@@ -120,6 +120,18 @@ class DevelopmentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $development = $this->developmentRepository->getById($id);
+
+            if(!$development) {
+                return ResponseHelper::jsonResponse(true, 'Data Pembangunan Tidak Ditemukan', null, 404);
+            }
+
+            $development = $this->developmentRepository->delete($id);
+
+            return ResponseHelper::jsonResponse(true, 'Data Pembangunan Berhasil di Hapus', null, 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 }
