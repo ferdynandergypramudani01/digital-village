@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ResponseHelper;
 use App\Http\Requests\DevelopmentStoreRequest;
+use App\Http\Requests\DevelopmentUpdateRequest;
 use App\Http\Resources\DevelopmentResource;
 use App\Http\Resources\EventResource;
 use App\Http\Resources\PaginateResource;
@@ -95,9 +96,23 @@ class DevelopmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(DevelopmentUpdateRequest $request, string $id)
     {
-        //
+        $request = $request->validated();
+
+        try {
+            $development = $this->developmentRepository->getById($id);
+
+            if(!$development) {
+                return ResponseHelper::jsonResponse(true, 'Data Pembangunan Tidak Ditemukan', null, 404);
+            }
+
+            $development = $this->developmentRepository->update($id, $request);
+
+            return ResponseHelper::jsonResponse(true, 'Data Pembangunan Berhasil di Update', new DevelopmentResource($development), 200);
+        } catch (\Exception $e) {
+            return ResponseHelper::jsonResponse(false, $e->getMessage(), null, 500);
+        }
     }
 
     /**
