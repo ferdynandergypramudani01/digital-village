@@ -48,6 +48,15 @@ class DevelopmentApplicantRepository implements DevelopmentApplicantRepositoryIn
     }
 
 
+    public function getById(
+        string $id
+    ) {
+        $query = DevelopmentApplicant::where('id', $id);
+
+        return $query->first();
+    }
+
+
     public function create(
         array $data
     ) {
