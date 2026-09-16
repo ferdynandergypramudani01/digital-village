@@ -23,7 +23,7 @@ class DevelopmentApplicantUpdateRequest extends FormRequest
 
     public function attributes()
     {
-        return [
+        return [!
             'development_id' => 'Pembangunan',
             'user_id' => 'User',
             'status' => 'Status'
