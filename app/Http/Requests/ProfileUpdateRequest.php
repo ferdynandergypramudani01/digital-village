@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProfileStoreRequest extends FormRequest
+class ProfileUpdateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -15,7 +15,7 @@ class ProfileStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'thumbnail' => 'required|image',
+            'thumbnail' => 'nullable|image',
             'name' => 'required|string',
             'about' => 'required',
             'headman' => 'required|string',

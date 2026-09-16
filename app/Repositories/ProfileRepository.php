@@ -26,7 +26,7 @@ class ProfileRepository implements ProfileRepositoryInterface
             $profile->about = $data['about'];
             $profile->headman = $data['headman'];
             $profile->people = $data['people'];
-            $profile->agriculture_area = $data['agriculture_area'];
+            $profile->agricultural_area = $data['agricultural_area'];
             $profile->total_area = $data['total_area'];
 
             if (array_key_exists('images', $data)) {
@@ -66,7 +66,7 @@ class ProfileRepository implements ProfileRepositoryInterface
             $profile->about = $data['about'];
             $profile->headman = $data['headman'];
             $profile->people = $data['people'];
-            $profile->agriculture_area = $data['agriculture_area'];
+            $profile->agricultural_area = $data['agricultural_area'];
             $profile->total_area = $data['total_area'];
 
             if (array_key_exists('images', $data)) {
